@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+        <h1 class="name">Hello! Meerthika</h1>
+        <h3 class="email">Email: meerthikasrrajendran2@gmail.com</h3>
+    <div class="spam-main-box">
+        <div class="spam-box">
+            <h1 class="spam-h1">Spam Emails</h1>
+            <div class="spam-emails">
+                <div class="email1">
+                    <h2>From: moscow @gmail.com</h2>
+                    <h3>Phishy urls : ioaijfwf.html</h3>
+                    <h3>Type: Scam</h3>
+                    <div class="inbox-buttons">
+                        <button class="button-30">View in inbox</button>
+                        <button class="button-30">Discard</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="pie-chart">
+            <h1>Today's Report</h1>
+            <canvas id="spamPieChart"></canvas>
+            <script>
+                // Define the data first
+                const data = {
+                    labels: [
+                        'Red',
+                        'Blue',
+                        'Yellow'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [300, 50, 100],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                };
+        
+                // Then define the config
+                const config = {
+                    type: 'doughnut',
+                    data: data,
+                };
+        
+                // Render the chart
+                const ctx = document.getElementById('spamPieChart').getContext('2d');
+                new Chart(ctx, config);
+            </script>
+        </div>
+    </div>
+    
+</body>
+</html>

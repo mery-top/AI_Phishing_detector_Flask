@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analysis.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <h1>Analysis of Spam Emails</h1>
+    <div class="charts-container">
+        <!-- Monthly Radar Chart -->
+        <div class="chart">
+            <h3>Monthly Data</h3>
+            <canvas id="monthlyChart"></canvas>
+        </div>
+    
+        <!-- Weekly Radar Chart -->
+        <div class="chart">
+            <h3>Weekly Data</h3>
+            <canvas id="weeklyChart"></canvas>
+        </div>
+    
+        <!-- Include Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+        <script>
+            // Monthly Chart Configuration
+            const monthlyLabels = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+    
+            const monthlyData = {
+                labels: monthlyLabels,
+                datasets: [{
+                    label: 'Monthly Dataset',
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 1,
+                    data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120],
+                }]
+            };
+    
+            const monthlyConfig = {
+                type: 'radar',
+                data: monthlyData,
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 20 // Change legend font size
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'red'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 16 // Change the point labels font size
+                                }
+                            }
+                        }
+                    }
+                }
+            };            
+    
+            // Weekly Chart Configuration
+            const weeklyLabels = [
+                'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
+            ];
+    
+            const weeklyData = {
+                labels: weeklyLabels,
+                datasets: [{
+                    label: 'Weekly Dataset',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    borderWidth: 1,
+                    data: [5, 15, 25, 35, 45, 55, 65],
+                }]
+            };
+    
+            const weeklyConfig = {
+                type: 'radar',
+                data: weeklyData,
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 20 // Change legend font size
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'blue'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 16 // Change the point labels font size
+                                }
+                            }
+                        }
+                    }
+                }
+            };            
+    
+            // Render the Monthly Chart
+            const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+            new Chart(monthlyCtx, monthlyConfig);
+    
+            // Render the Weekly Chart
+            const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
+            new Chart(weeklyCtx, weeklyConfig);
+        </script>
+    </div>
+    
+    <!-- Add some basic CSS for layout -->
+
+
+    
+</body>
+</html>

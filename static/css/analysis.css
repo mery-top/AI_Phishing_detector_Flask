@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+*{
+    margin: 0;
+}
+
+body {
+    font-family: "Funnel Display", serif;
+    background-color: #bb080e;
+    text-align: center;
+    font-size: larger;
+}
+
+h1 {
+    color: #fcd34d; 
+    background-image: linear-gradient(45deg, #fcd34d 40%, #ed5959 50%, #ec4899 67%); 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    font-size: 70px;
+    margin-top: 30px;
+   }
+
+   .year-chart{
+    background-color: rgb(249, 247, 222);
+    height: 530px;
+    width: 500px;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.charts-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.chart {
+    text-align: center;
+    width: 35%;
+    background-color: rgb(249, 247, 222);
+    padding: 50px;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
